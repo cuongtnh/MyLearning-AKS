@@ -15,8 +15,10 @@ data "terraform_remote_state" "aks" {
   backend = "local"
 
   config = {
-    path = "../AKS-Provisioning/terraform.tfstate"
-  }
+    organization = "cuongtnhlab"
+    workspaces = {
+      name = "aks-lab-01"
+    }
 }
 
 # Retrieve AKS cluster information
