@@ -6,11 +6,6 @@
     }
 
     stages {
-      stage('fetch_latest_code') {
-        steps {
-          git url: 'https://github.com/cuongtnh/MyLearning-TanHC-Project.git'
-        }
-      }
 
       stage('TF Init&Plan') {
         steps {
