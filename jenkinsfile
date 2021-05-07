@@ -9,6 +9,10 @@
 
       stage('TF Init&Plan') {
         steps {
+          script {
+            cd /var/jenkins_home/workspace/Test
+            terraform init
+          }
           sh 'terraform init'
           sh 'terraform plan'
         }      
