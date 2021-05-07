@@ -1,17 +1,15 @@
   pipeline {
     agent {
-      node {
-        label "master"
-      } 
+      docker {
+        image 'hashicorp/terraform:light'
+        args '--entrypoint='
+      }
     }
 
     stages {
 
       stage('TF Init&Plan') {
         steps {
-          script {
-            /var/jenkins_home/workspace/Test/terraform init
-          }
           sh 'terraform init'
           sh 'terraform plan'
         }      
