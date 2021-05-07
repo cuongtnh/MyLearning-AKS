@@ -1,7 +1,8 @@
   pipeline {
     agent {
-      labels master
-      }
+      node {
+        label "master"
+      } 
     }
 
     stages {
