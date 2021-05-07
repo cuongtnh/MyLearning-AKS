@@ -19,6 +19,7 @@ data "terraform_remote_state" "aks" {
     workspaces = {
       name = "aks-lab-01"
     }
+   }
 }
 
 # Retrieve AKS cluster information
