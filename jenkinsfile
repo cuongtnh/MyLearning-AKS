@@ -9,7 +9,7 @@
 
       stage('TF Init&Plan') {
         steps {
-          sh 'terraform init'
+          bash 'terraform init'
           sh 'terraform plan'
         }      
       }
