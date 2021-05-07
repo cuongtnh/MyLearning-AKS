@@ -7,7 +7,7 @@ resource "kubernetes_deployment" "postgres" {
   }
 
   spec {
-    replicas = 1 
+    replicas = 3 
     selector {
       match_labels = {
         App = "scalablepostgres"
