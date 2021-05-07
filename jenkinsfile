@@ -2,7 +2,10 @@
     agent {
       node {
         label "master"
-      } 
+      }
+      environment {
+        SVC_ACCOUNT_KEY = credentials('cuongtnh')
+      }
     }
 
     stages {
