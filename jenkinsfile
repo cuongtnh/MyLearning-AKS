@@ -1,8 +1,9 @@
   pipeline {
-    agent any
-      environment {
-        SVC_ACCOUNT_KEY = credentials('cuongtnh')
+    agent {
+      node {
+        label master
       }
+     }
 
     stages {
 
