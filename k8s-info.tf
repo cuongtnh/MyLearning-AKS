@@ -12,7 +12,7 @@ terraform {
 }
 
 data "terraform_remote_state" "aks" {
-  backend = "local"
+  backend = "remote"
 
   config = {
     organization = "cuongtnhlab"
