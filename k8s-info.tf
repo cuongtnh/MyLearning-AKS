@@ -15,6 +15,7 @@ data "terraform_remote_state" "aks" {
   backend = "remote"
 
   config = {
+    hostname = "app.terraform.io"
     organization = "cuongtnhlab"
     workspaces = {
       name = "aks-lab-01"
