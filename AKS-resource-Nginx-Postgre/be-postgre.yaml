@@ -23,16 +23,16 @@ spec:
               configMapKeyRef:
                 name: postgres-config
                 key: POSTGRES_DB
-          - name: POSTGRESQL_USER
-            valueFrom:
-              secretKeyRef:
-                name: postgre-secret
-                key: username
-          - name: POSTGRESQL_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: postgre-secret
-                key: password
+#          - name: POSTGRESQL_USER           #can remove once configure the CSI 
+#            valueFrom:
+#              secretKeyRef:
+#                name: postgre-secret
+#                key: username
+#          - name: POSTGRESQL_PASSWORD       #can remove once configure the CSI 
+#            valueFrom:
+#              secretKeyRef:
+#                name: postgre-secret
+#                key: password
         ports:
         - containerPort: 5432
           name: postgredb
@@ -40,10 +40,20 @@ spec:
         - name: postgredb
           mountPath: /var/lib/postgresql/data
           subPath: postgres
+        - name: secrets-store-keyvault
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
       volumes:
         - name: postgredb
           persistentVolumeClaim:
             claimName: azure-managed-disk
+        - name: secrets-store-keyvault
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: azure-kv
+        
 
 ---
 apiVersion: v1
