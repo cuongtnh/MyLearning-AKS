@@ -1,7 +1,3 @@
-# MyLearning-JenkinstoTerraform
+I'm learning DevOps so it's my repo for hands-on practises
 
-k8s.tf is the Terraform file to retrieve the K8s information that created in Azure.
-
-Both tf of Postgres files are to Terraform file to create the deployment and service in AKS.
-
-jenkinsfile are pipeline files in Jenkins
+Each folder is separate project that I have done 
